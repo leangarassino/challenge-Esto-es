@@ -11,7 +11,7 @@ import { ProjectsService } from 'src/app/services/projects.service';
   styleUrls: ['./addproject.component.css']
 })
 export class AddprojectComponent implements OnInit {
-  menu1 = { name: 'Add Project'}
+  name = { name: 'Add Project'}
   form: FormGroup;
   status: any[] = ['enabled', 'disabled']
   selected: Projects[] = []

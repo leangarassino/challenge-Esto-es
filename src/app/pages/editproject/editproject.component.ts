@@ -11,7 +11,7 @@ import { ProjectsService } from 'src/app/services/projects.service';
   styleUrls: ['./editproject.component.css']
 })
 export class EditprojectComponent implements OnInit {
-  menu1 = { name: 'Edit Project'}
+  name = { name: 'Edit Project'}
   form: FormGroup;
   status: any[] = ['enabled', 'disabled']
   listProjects: Projects[] = [];

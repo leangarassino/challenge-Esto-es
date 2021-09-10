@@ -23,7 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditprojectComponent } from './pages/editproject/editproject.component';
-import { MenuProjectsTwoComponent } from './components/menu-projects-two/menu-projects-two.component';
+import { FormMenuComponent } from './components/form-menu/form-menu.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { MenuProjectsTwoComponent } from './components/menu-projects-two/menu-pr
     HomeComponent,
     AddprojectComponent,
     EditprojectComponent,
-    MenuProjectsTwoComponent,
+    FormMenuComponent,
   ],
   imports: [
     BrowserModule,
