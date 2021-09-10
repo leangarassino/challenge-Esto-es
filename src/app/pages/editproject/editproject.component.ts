@@ -14,6 +14,7 @@ export class EditprojectComponent implements OnInit {
   name = { name: 'Edit Project'}
   form: FormGroup;
   status: any[] = ['enabled', 'disabled']
+  date = new Date();
   listProjects: Projects[] = [];
 
   constructor(private _projectService: ProjectsService, private activatedroute: ActivatedRoute, private fb: FormBuilder, private router: Router, private _snackBar: MatSnackBar) { 
@@ -23,7 +24,8 @@ export class EditprojectComponent implements OnInit {
       projectManager: ['', Validators.required],
       assignedTo: ['', Validators.required],
       status: ['', Validators.required],
-      description: ['', Validators.required]
+      description: ['', Validators.required],
+      date: [`${this.date.toLocaleString()}`]
     })
   }
 
@@ -41,7 +43,8 @@ export class EditprojectComponent implements OnInit {
       projectManager: this.form.value.projectManager,
       assignedTo: this.form.value.assignedTo,
       status: this.form.value.status,
-      description: this.form.value.description    
+      description: this.form.value.description,
+      date: this.form.value.date    
     }
     let id = this.activatedroute.snapshot.paramMap.get('index')
     this._projectService.updateProjects(id, project)

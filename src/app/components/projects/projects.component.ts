@@ -40,9 +40,9 @@ export class ProjectsComponent implements OnInit {
   }
 
   deleteProjects(index: number) {
-    // console.log(index)
     this._projectService.deleteProjects(index);
     this.loadProjects();
+    this.ngAfterViewInit();
     this._snackBar.open('El proyecto ha sido eliminado', '', {
       duration: 1500,
       horizontalPosition: 'center',

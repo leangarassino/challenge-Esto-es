@@ -3,5 +3,6 @@ export interface Projects {
     projectManager: string,
     assignedTo: string,
     status: string,
-    description: string
+    description: string,
+    date: string
 }

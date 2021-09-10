@@ -14,7 +14,8 @@ export class AddprojectComponent implements OnInit {
   name = { name: 'Add Project'}
   form: FormGroup;
   status: any[] = ['enabled', 'disabled']
-  selected: Projects[] = []
+  date = new Date();
+  selected: Projects[] = [];
 
   constructor(private fb: FormBuilder, private _projectService: ProjectsService, private router: Router, private _snackBar: MatSnackBar) {
 
@@ -23,7 +24,8 @@ export class AddprojectComponent implements OnInit {
       projectManager: ['', Validators.required],
       assignedTo: ['', Validators.required],
       status: ['', Validators.required],
-      description: ['', Validators.required]
+      description: ['', Validators.required],
+      date: [`${this.date.toLocaleString()}`]
     })
    }
 
@@ -42,7 +44,8 @@ export class AddprojectComponent implements OnInit {
       projectManager: this.form.value.projectManager,
       assignedTo: this.form.value.assignedTo,
       status: this.form.value.status,
-      description: this.form.value.description   
+      description: this.form.value.description,
+      date: this.form.value.date   
     }
 
     this._projectService.addProjects(project)
