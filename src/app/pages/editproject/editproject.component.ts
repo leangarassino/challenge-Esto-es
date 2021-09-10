@@ -15,7 +15,6 @@ export class EditprojectComponent implements OnInit {
   form: FormGroup;
   status: any[] = ['enabled', 'disabled']
   listProjects: Projects[] = [];
-  public date = new Date();
 
   constructor(private _projectService: ProjectsService, private activatedroute: ActivatedRoute, private fb: FormBuilder, private router: Router, private _snackBar: MatSnackBar) { 
 
@@ -24,8 +23,7 @@ export class EditprojectComponent implements OnInit {
       projectManager: ['', Validators.required],
       assignedTo: ['', Validators.required],
       status: ['', Validators.required],
-      description: ['', Validators.required],
-      date: [`${this.date.toLocaleString()}`]
+      description: ['', Validators.required]
     })
   }
 
