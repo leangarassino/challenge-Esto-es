@@ -1,0 +1,16 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.logo {
+    font-size: 25px;
+    font-weight: 500;
+}
+.color{
+  background-color: #ffffff
+}
+.border{
+  border-bottom: 2px solid #EEEEEE;
+}
+.pointer{
+  cursor: pointer;
+}

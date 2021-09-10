@@ -1,0 +1,61 @@
+<div>
+  <app-menu-projects-two [menu1]="menu1"></app-menu-projects-two>
+  <form
+    [formGroup]="form"
+    (ngSubmit)="addProject()"
+    style="display: flex; justify-content: center"
+  >
+    <mat-card class="form">
+      <p style="margin-left: 3%">Project Name</p>
+      <mat-form-field appearance="outline" class="width">
+        <mat-label></mat-label>
+        <input matInput formControlName="projectInfo" />
+      </mat-form-field>
+      <p style="margin-left: 3%">Description</p>
+      <mat-form-field appearance="outline" class="width">
+        <mat-label></mat-label>
+        <input matInput formControlName="description" />
+      </mat-form-field>
+      <p style="margin-left: 3%">Project Manager</p>
+      <mat-form-field appearance="fill" class="width">
+        <p></p>
+        <mat-label>Select a person</mat-label>
+        <mat-select formControlName="projectManager">
+          <mat-option *ngFor="let item of selected" [value]="item.projectManager">{{
+            item.projectManager
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <p style="margin-left: 3%">Assigned To</p>
+      <mat-form-field appearance="fill" class="width">
+        <p></p>
+        <mat-label>Select a person</mat-label>
+        <mat-select formControlName="assignedTo">
+          <mat-option *ngFor="let item of selected" [value]="item.assignedTo">{{
+            item.assignedTo
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <p style="margin-left: 3%">Status</p>
+      <mat-form-field appearance="fill" class="width">
+        <p></p>
+        <mat-label>Enabled</mat-label>
+        <mat-select formControlName="status">
+          <mat-option *ngFor="let item of status" [value]="item">{{
+            item
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button
+          mat-raised-button
+          color="warn"
+          type="submit"
+          [disabled]="form.invalid"
+        >
+          Create Project
+        </button>
+      </div>
+    </mat-card>
+  </form>
+</div>

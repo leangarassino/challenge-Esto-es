@@ -1,0 +1,12 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    position: relative;
+    width: 500px;
+    margin-bottom: 3%;
+  }
+.width {
+    width: 100%;
+    align-self: center;
+}

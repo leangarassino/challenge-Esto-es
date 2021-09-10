@@ -1,0 +1,53 @@
+<div>
+  <app-menu-projects-two [menu1]="menu1"></app-menu-projects-two>
+  
+    <form style="display: flex; justify-content: center;" [formGroup]="form" (ngSubmit)="editProject()">
+    <mat-card class="form">
+      <p style="margin-left: 3%">Project Name</p>
+      <mat-form-field appearance="outline" class="width">
+        <mat-label></mat-label>
+        <input matInput formControlName="projectInfo" autocomplete="off"/>
+      </mat-form-field>
+      <p style="margin-left: 3%">Description</p>
+      <mat-form-field appearance="outline" class="width">
+        <mat-label></mat-label>
+        <input matInput formControlName="description" autocomplete="off"/>
+      </mat-form-field>
+      <p style="margin-left: 3%">Project Manager</p>
+      <mat-form-field appearance="fill" class="width">
+        <p></p>
+        <mat-label>Select a person</mat-label>
+        <mat-select formControlName="projectManager">
+          <mat-option *ngFor="let item of listProjects" [value]="item.projectManager">{{item.projectManager}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <p style="margin-left: 3%">Assigned To</p>
+      <mat-form-field appearance="fill" class="width">
+        <p></p>
+        <mat-label>Select a person</mat-label>
+        <mat-select formControlName="assignedTo">
+          <mat-option *ngFor="let item of listProjects" [value]="item.assignedTo">{{item.assignedTo}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <p style="margin-left: 3%">Status</p>
+      <mat-form-field appearance="fill" class="width">
+        <p></p>
+        <mat-label>Enabled</mat-label>
+        <mat-select formControlName="status">
+          <mat-option *ngFor="let item of status" [value]="item">{{item}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+      <button
+        mat-raised-button
+        color="warn"
+        type="submit"
+        [disabled]="form.invalid"
+        
+      >
+        Save changes
+      </button>
+      </div>
+    </mat-card>
+      </form>
+  </div>

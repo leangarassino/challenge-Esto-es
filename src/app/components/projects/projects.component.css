@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+    margin-bottom: 3%;
+  }
+th {
+  width: 20%;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.span {
+  font-size: 10px;
+  color: gray;
+}

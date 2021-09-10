@@ -1,0 +1,59 @@
+<div class="container" style="padding: 3%;">
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input autocomplete="off">
+  </mat-form-field>
+  <div class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="Project Info">
+      <th mat-header-cell *matHeaderCellDef> Project Info </th>
+      <td mat-cell *matCellDef="let element"> {{element.projectInfo}} <br> <span class='span'>{{element.date}}</span> </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Project Manager">
+      <th mat-header-cell *matHeaderCellDef> Project Manager </th>
+      <td mat-cell *matCellDef="let element"> {{element.projectManager}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Assigned to">
+      <th mat-header-cell *matHeaderCellDef> Assigned to </th>
+      <td mat-cell *matCellDef="let element"> {{element.assignedTo}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> <button mat-stroked-button disabled>{{element.status}} </button> </td>
+    </ng-container>
+    <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element; let i = index"> 
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+            <mat-menu #menu="matMenu" >
+                <button mat-menu-item (click)="editProject(i)">
+                  <mat-icon>edit</mat-icon>
+                  <span>Edit</span>
+                </button>
+                <button mat-menu-item (click)="deleteProjects(i)">
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu> 
+        </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->
+</div>
+</div>
